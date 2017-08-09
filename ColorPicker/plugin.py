@@ -5,7 +5,7 @@
 #					 https://github.com/Phhere/Playbulb
 #
 """
-<plugin key="MiPowCP" name="Mipow PlayBulb ColorPicker" author="zaraki673" version="1.0.0" wikilink="http://www.domoticz.com/wiki/Plugins/PlayBulb" externallink="http://www.playbulb.com">
+<plugin key="MiPowCP" name="Mipow PlayBulb ColorPicker" author="zaraki673" version="1.0.1" wikilink="http://www.domoticz.com/wiki/Plugins/PlayBulb" externallink="http://www.playbulb.com">
 	<params>
 		<param field="Address" label="MAC Address" width="150px" required="true"/>
 		<param field="Mode1" label="Model" width="100px">
@@ -172,7 +172,7 @@ class BasePlugin:
 		return
 
 	# present de base 
-	def onMessage(self, Connection, Data, Status, Extra):
+	def onMessage(self, Connection, Data):
 		return
 
 	# present de base action executer qd une commande est passé a Domoticz
@@ -478,9 +478,9 @@ def onConnect(Connection, Status, Description):
 	global _plugin
 	_plugin.onConnect(Connection, Status, Description)
 
-def onMessage(Connection, Data, Status, Extra):
+def onMessage(Connection, Data):
 	global _plugin
-	_plugin.onMessage(Connection, Data, Status, Extra)
+	_plugin.onMessage(Connection, Data)
 
 def onCommand(Unit, Command, Level, Hue):
 	global _plugin
